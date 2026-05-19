@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useEffect, useState } from 'react';
@@ -42,7 +41,7 @@ export function SleepResults({ results, onReset }: SleepResultsProps) {
       <div className="w-full max-w-4xl mx-auto space-y-8 flex flex-col items-center">
         <div className="text-center space-y-4">
           <Sparkles className="w-12 h-12 text-[#E3F2FD] animate-pulse mx-auto" />
-          <h2 className="text-3xl font-bold text-white">Analyse en cours...</h2>
+          <h2 className="text-3xl font-bold text-white">Analyse de vos piliers...</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {[1, 2, 3, 4].map((i) => (
@@ -57,22 +56,22 @@ export function SleepResults({ results, onReset }: SleepResultsProps) {
     {
       title: 'Sommeil',
       icon: <Moon className="w-6 h-6" />,
-      text: recommendations?.sleepRecommendation,
+      text: recommendations?.sleep,
     },
     {
       title: 'Relaxation',
       icon: <Wind className="w-6 h-6" />,
-      text: recommendations?.relaxationRecommendation,
+      text: recommendations?.relaxation,
     },
     {
       title: 'Activité Physique',
       icon: <Activity className="w-6 h-6" />,
-      text: recommendations?.physicalActivityRecommendation,
+      text: recommendations?.sport,
     },
     {
       title: 'Consommation',
       icon: <Coffee className="w-6 h-6" />,
-      text: recommendations?.stimulantRecommendation,
+      text: recommendations?.drinks,
     },
   ];
 
@@ -80,7 +79,7 @@ export function SleepResults({ results, onReset }: SleepResultsProps) {
     <div className="w-full max-w-5xl mx-auto space-y-10 flex flex-col items-center card-entrance">
       <div className="text-center space-y-3">
         <h2 className="text-4xl font-bold text-white">Votre Bilan Personnalisé</h2>
-        <p className="text-white/60 text-lg">Suivez ces recommandations pour retrouver des nuits paisibles.</p>
+        <p className="text-white/60 text-lg">Voici vos recommandations basées sur les 4 piliers de votre hygiène de vie.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">

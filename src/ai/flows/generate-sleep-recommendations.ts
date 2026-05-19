@@ -1,10 +1,10 @@
 'use server';
 /**
- * @fileOverview A Genkit flow for generating personalized sleep recommendations based on questionnaire responses.
+ * @fileOverview Un flux Genkit pour générer des recommandations de sommeil personnalisées basées sur les réponses au questionnaire.
  *
- * - generateSleepRecommendations - A function that handles the generation of sleep recommendations.
- * - GenerateSleepRecommendationsInput - The input type for the generateSleepRecommendations function.
- * - GenerateSleepRecommendationsOutput - The return type for the generateSleepRecommendations function.
+ * - generateSleepRecommendations - Fonction qui gère la génération des recommandations.
+ * - GenerateSleepRecommendationsInput - Type d'entrée pour la fonction.
+ * - GenerateSleepRecommendationsOutput - Type de sortie pour la fonction.
  */
 
 import { ai } from '@/ai/genkit';
@@ -14,22 +14,22 @@ const GenerateSleepRecommendationsInputSchema = z.object({
   sleepDuration: z
     .enum(['bad', 'medium', 'good'])
     .describe(
-      'User\"s reported sleep duration: "bad" (less than 5h), "medium" (5-7h), "good" (more than 7h).'
+      'Durée de sommeil : "bad" (< 5h), "medium" (5-7h), "good" (> 7h).'
     ),
   stressLevel: z
     .enum(['bad', 'medium', 'good'])
     .describe(
-      'User\"s reported stress level before bed: "bad" (always), "medium" (often), "good" (rarely).'
+      'Niveau de stress : "bad" (toujours), "medium" (souvent), "good" (rarement).'
     ),
   physicalActivity: z
     .enum(['bad', 'medium', 'good'])
     .describe(
-      'User\"s reported physical activity habits: "bad" (never), "medium" (evening before sleep), "good" (during the day).'
+      'Activité physique : "bad" (jamais), "medium" (le soir), "good" (en journée).'
     ),
   stimulantConsumption: z
     .enum(['bad', 'medium', 'good'])
     .describe(
-      'User\"s reported stimulant consumption: "bad" (a lot), "medium" (moderately), "good" (never).'
+      'Consommation d\'excitants : "bad" (beaucoup), "medium" (modérément), "good" (jamais).'
     ),
 });
 export type GenerateSleepRecommendationsInput = z.infer<
@@ -37,25 +37,25 @@ export type GenerateSleepRecommendationsInput = z.infer<
 >;
 
 const GenerateSleepRecommendationsOutputSchema = z.object({
-  sleepRecommendation: z
+  sleep: z
     .string()
     .describe(
-      'Personalized recommendation regarding sleep duration and circadian rhythms.'
+      'Conseil personnalisé sur la durée du sommeil et les rythmes circadiens.'
     ),
-  relaxationRecommendation: z
+  relaxation: z
     .string()
     .describe(
-      'Personalized recommendation regarding stress management and relaxation techniques.'
+      'Conseil personnalisé sur la gestion du stress et la relaxation.'
     ),
-  physicalActivityRecommendation: z
+  sport: z
     .string()
     .describe(
-      'Personalized recommendation regarding physical activity timing and impact on sleep.'
+      'Conseil personnalisé sur l\'activité physique et son timing.'
     ),
-  stimulantRecommendation: z
+  drinks: z
     .string()
     .describe(
-      'Personalized recommendation regarding stimulant consumption and its effect on sleep.'
+      'Conseil personnalisé sur la consommation de boissons excitantes.'
     ),
 });
 export type GenerateSleepRecommendationsOutput = z.infer<
@@ -72,23 +72,22 @@ const sleepRecommendationsPrompt = ai.definePrompt({
   name: 'sleepRecommendationsPrompt',
   input: { schema: GenerateSleepRecommendationsInputSchema },
   output: { schema: GenerateSleepRecommendationsOutputSchema },
-  prompt: `You are an expert sleep coach specializing in personalized behavioral recommendations for better rest. You will analyze a user's sleep habits based on a questionnaire and provide highly personalized, actionable advice.
+  prompt: `Tu es un expert coach en sommeil spécialisé dans les thérapies comportementales pour l'insomnie. Tu vas analyser les réponses d'un utilisateur et fournir des conseils ultra-personnalisés et actionnables en français.
 
-Here are the user's responses to a sleep questionnaire:
+Réponses de l'utilisateur :
+- Sommeil (Durée) : {{{sleepDuration}}}
+- Relaxation (Stress) : {{{stressLevel}}}
+- Sport (Activité physique) : {{{physicalActivity}}}
+- Boissons (Excitants) : {{{stimulantConsumption}}}
 
-- Sleep Duration: {{{sleepDuration}}}
-- Stress Level before sleep: {{{stressLevel}}}
-- Physical Activity: {{{physicalActivity}}}
-- Stimulant Consumption (afternoon/evening): {{{stimulantConsumption}}}
+Génère un bilan structuré en 4 parties précises (en français) :
 
-Based on these responses, generate a personalized recommendation for each of the following categories:
+1. **Sommeil** : Si c'est 'bad', explique l'importance de la régularité et des cycles de 90 min. Si c'est 'good', encourage la maintenance.
+2. **Relaxation** : Si c'est 'bad' ou 'medium', propose une technique spécifique (ex: cohérence cardiaque, respiration 4-7-8, scan corporel).
+3. **Activité Physique** : Si l'utilisateur fait du sport le soir ('medium'), explique que cela augmente la température centrale et retarde l'endormissement. Conseille de finir 3h avant le coucher.
+4. **Boissons** : Si c'est 'bad' ou 'medium', recommande fermement l'arrêt de la caféine/théine après 14h à cause de la demi-vie de la molécule.
 
-1.  **Sleep Recommendation**: Provide advice on sleep duration, sleep hygiene, and circadian rhythms. For example, if sleepDuration is 'bad', suggest ways to increase sleep or regularize sleep times.
-2.  **Relaxation Recommendation**: Provide advice on stress management techniques before bed, such as breathing exercises or mindfulness. For example, if stressLevel is 'bad', suggest specific relaxation methods.
-3.  **Physical Activity Recommendation**: Provide advice on the timing and type of physical activity to optimize sleep. For example, if physicalActivity is 'medium' (evening), explain why exercising late is detrimental and suggest alternatives.
-4.  **Stimulant Recommendation**: Provide advice on reducing or eliminating stimulants like caffeine or nicotine, especially in the afternoon or evening. For example, if stimulantConsumption is 'bad', recommend cutting off stimulants after 2 PM.
-
-Ensure each recommendation is practical, concise, and directly addresses the user's specific input for that category. Output your response as a JSON object matching the provided schema.`,
+Chaque conseil doit être court (2-3 phrases), bienveillant mais ferme, et directement lié à la réponse fournie.`,
 });
 
 const generateSleepRecommendationsFlow = ai.defineFlow(
