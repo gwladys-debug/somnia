@@ -32,7 +32,7 @@ export default function Home() {
         <div className="w-full max-w-2xl text-center space-y-8 card-entrance">
           <div className="space-y-4">
             <h1 className="text-6xl font-bold text-white tracking-tight">
-              Sommeil <span className="text-[#E3F2FD]">Serein</span>
+              <span className="text-[#E3F2FD]">Fè Moun Dòmi</span>
             </h1>
             <p className="text-xl text-white/70 max-w-lg mx-auto leading-relaxed">
               Analysez votre insomnie à travers nos 4 piliers fondamentaux (Sommeil, Relaxation, Sport, Boissons) et recevez des conseils d'experts.
