@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-sleep",
+      "description": "Peaceful night sky with stars",
+      "imageUrl": "https://picsum.photos/seed/sleep-1/800/600",
+      "imageHint": "night sky"
+    },
+    {
+      "id": "pillar-sleep",
+      "description": "Cozy bed",
+      "imageUrl": "https://picsum.photos/seed/sleep-2/400/300",
+      "imageHint": "bed bedroom"
+    },
+    {
+      "id": "pillar-relaxation",
+      "description": "Zen meditation",
+      "imageUrl": "https://picsum.photos/seed/relax/400/300",
+      "imageHint": "meditation zen"
+    },
+    {
+      "id": "pillar-sport",
+      "description": "Healthy lifestyle",
+      "imageUrl": "https://picsum.photos/seed/sport/400/300",
+      "imageHint": "running morning"
+    },
+    {
+      "id": "pillar-drinks",
+      "description": "Herbal tea",
+      "imageUrl": "https://picsum.photos/seed/tea/400/300",
+      "imageHint": "tea cup"
+    }
+  ]
 }
