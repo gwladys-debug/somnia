@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useEffect, useState } from 'react';
@@ -6,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Moon, Wind, Activity, Coffee, RefreshCw, Sparkles } from "lucide-react";
 import { generateSleepRecommendations, GenerateSleepRecommendationsOutput } from '@/ai/flows/generate-sleep-recommendations';
-import { QuizResults } from './SleepQuiz';
+import { QuizResults } from '@/lib/sleep-constants';
 
 interface SleepResultsProps {
   results: QuizResults;
@@ -28,7 +29,7 @@ export function SleepResults({ results, onReset }: SleepResultsProps) {
         });
         setRecommendations(advice);
       } catch (error) {
-        console.error("Failed to fetch recommendations:", error);
+        console.error("Erreur lors de la récupération des conseils:", error);
       } finally {
         setLoading(false);
       }
@@ -38,15 +39,14 @@ export function SleepResults({ results, onReset }: SleepResultsProps) {
 
   if (loading) {
     return (
-      <div className="w-full max-w-4xl mx-auto p-4 space-y-8 flex flex-col items-center">
+      <div className="w-full max-w-4xl mx-auto space-y-8 flex flex-col items-center">
         <div className="text-center space-y-4">
-          <Sparkles className="w-12 h-12 text-primary animate-pulse mx-auto" />
-          <h2 className="text-3xl font-bold text-white">Analyse de vos réponses...</h2>
-          <p className="text-white/60">Nos experts IA préparent vos conseils personnalisés.</p>
+          <Sparkles className="w-12 h-12 text-[#E3F2FD] animate-pulse mx-auto" />
+          <h2 className="text-3xl font-bold text-white">Analyse en cours...</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {[1, 2, 3, 4].map((i) => (
-            <Skeleton key={i} className="h-48 w-full rounded-2xl bg-white/5" />
+            <Skeleton key={i} className="h-48 w-full rounded-[16px] bg-white/5" />
           ))}
         </div>
       </div>
@@ -77,27 +77,27 @@ export function SleepResults({ results, onReset }: SleepResultsProps) {
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-4 space-y-8 flex flex-col items-center">
-      <div className="text-center space-y-2 card-entrance">
-        <h2 className="text-4xl font-bold text-white">Votre Plan Sommeil</h2>
-        <p className="text-white/60 text-lg">Voici nos recommandations pour améliorer vos nuits.</p>
+    <div className="w-full max-w-5xl mx-auto space-y-10 flex flex-col items-center card-entrance">
+      <div className="text-center space-y-3">
+        <h2 className="text-4xl font-bold text-white">Votre Bilan Personnalisé</h2>
+        <p className="text-white/60 text-lg">Suivez ces recommandations pour retrouver des nuits paisibles.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
         {resultCards.map((card, idx) => (
           <Card 
             key={idx} 
-            className="card-entrance border-none shadow-xl bg-card transition-transform duration-300 hover:scale-[1.02]"
+            className="border-none shadow-xl bg-[#E3F2FD] rounded-[16px] transition-all hover:scale-[1.02] flex flex-col"
             style={{ animationDelay: `${idx * 150}ms` }}
           >
             <CardHeader className="flex flex-row items-center space-x-4 pb-2">
-              <div className="p-2 rounded-lg bg-primary/10 text-primary">
+              <div className="p-2 rounded-xl bg-[#0D47A1]/10 text-[#0D47A1]">
                 {card.icon}
               </div>
-              <CardTitle className="text-xl font-bold text-card-foreground">{card.title}</CardTitle>
+              <CardTitle className="text-xl font-bold text-[#0D47A1]">{card.title}</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-card-foreground/90 leading-relaxed font-medium">
+            <CardContent className="flex-1">
+              <p className="text-[#0D47A1] leading-relaxed font-medium">
                 {card.text}
               </p>
             </CardContent>
@@ -107,8 +107,7 @@ export function SleepResults({ results, onReset }: SleepResultsProps) {
 
       <Button
         onClick={onReset}
-        variant="secondary"
-        className="mt-8 h-12 px-8 text-lg font-semibold bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-xl button-transition flex items-center gap-2"
+        className="btn-pearl h-14 px-10 text-lg rounded-2xl flex items-center gap-2"
       >
         <RefreshCw className="w-5 h-5" />
         Refaire le test

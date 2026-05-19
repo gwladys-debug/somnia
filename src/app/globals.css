@@ -1,39 +1,33 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 210 10% 15%; /* #212529 charcoal */
+    --background: 210 10% 15%; /* #212529 */
     --foreground: 210 10% 98%;
-    --card: 204 100% 94%; /* #E3F2FD light blue */
-    --card-foreground: 217 85% 34%; /* #0D47A1 midnight blue */
-    --popover: 210 10% 15%;
-    --popover-foreground: 210 10% 98%;
-    --primary: 217 85% 34%; /* #0D47A1 */
-    --primary-foreground: 210 10% 98%;
-    --secondary: 0 0% 88%; /* #E0E0E0 pearl grey */
-    --secondary-foreground: 210 10% 15%;
+    
+    --card: 204 100% 94%; /* #E3F2FD */
+    --card-foreground: 217 85% 34%; /* #0D47A1 */
+    
+    --primary: 210 10% 88%; /* #E0E0E0 - Pearl Grey */
+    --primary-foreground: 210 10% 15%; /* #212529 */
+    
+    --secondary: 210 10% 20%;
+    --secondary-foreground: 210 10% 98%;
+    
+    --accent: 0 0% 74%; /* #BDBDBD - Medium Grey for hover */
+    --accent-foreground: 210 10% 15%;
+    
     --muted: 210 10% 25%;
     --muted-foreground: 210 10% 70%;
-    --accent: 0 0% 88%;
-    --accent-foreground: 210 10% 15%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    
     --border: 210 10% 25%;
     --input: 210 10% 25%;
-    --ring: 217 85% 34%;
+    --ring: 204 100% 94%;
+    
     --radius: 1rem; /* 16px */
-  }
-
-  .dark {
-    --background: 210 10% 10%;
-    --foreground: 210 10% 98%;
-    /* Keep the light blue cards even in dark mode for high contrast as requested */
-    --card: 204 100% 94%;
-    --card-foreground: 217 85% 34%;
-    --primary: 217 85% 34%;
-    --primary-foreground: 210 10% 98%;
   }
 }
 
@@ -42,8 +36,13 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-white font-body;
   }
+}
+
+/* Transitions personnalisées pour les boutons selon la charte */
+.btn-pearl {
+  @apply bg-[#E0E0E0] text-[#212529] font-semibold transition-all duration-300 ease-in-out hover:bg-[#BDBDBD] hover:-translate-y-0.5 shadow-sm hover:shadow-md;
 }
 
 .card-entrance {
@@ -59,12 +58,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.button-transition {
-  @apply transition-all duration-300 ease-in-out;
-}
-
-.button-transition:hover {
-  @apply transform -translate-y-1 shadow-md;
 }

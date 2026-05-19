@@ -1,0 +1,42 @@
+
+{
+  "entities": {
+    "UserResult": {
+      "title": "Résultat Utilisateur",
+      "description": "Stocke les réponses au questionnaire et les recommandations générées.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "responses": {
+          "type": "object",
+          "properties": {
+            "sleepDuration": { "type": "string", "enum": ["bad", "medium", "good"] },
+            "stressLevel": { "type": "string", "enum": ["bad", "medium", "good"] },
+            "physicalActivity": { "type": "string", "enum": ["bad", "medium", "good"] },
+            "stimulantConsumption": { "type": "string", "enum": ["bad", "medium", "good"] }
+          }
+        },
+        "recommendations": {
+          "type": "object",
+          "properties": {
+            "sleep": { "type": "string" },
+            "relaxation": { "type": "string" },
+            "sport": { "type": "string" },
+            "drinks": { "type": "string" }
+          }
+        }
+      },
+      "required": ["userId", "createdAt", "responses", "recommendations"]
+    }
+  },
+  "auth": {
+    "providers": ["anonymous", "google.com"]
+  },
+  "firestore": {
+    "/results/{resultId}": {
+      "schema": "#/backend/entities/UserResult",
+      "description": "Collection des résultats d'analyse de sommeil."
+    }
+  }
+}
