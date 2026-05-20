@@ -54,7 +54,7 @@ Pour installer et lancer ce projet sur votre machine locale, suivez ces étapes 
 # 1. Cloner le projet ou créer un dossier
 mkdir somnia
 
-# 2. Installer les dépendances (si projet cloné avec package.json)
+# 2. Installer les dépendances (projet cloné avec package.json)
 npm install
 
 # 3. Lancer le serveur de développement local
@@ -84,8 +84,7 @@ firebase init hosting
 firebase deploy
 Option B : Déploiement Flash (Vercel ou Netlify)
 1.	Créez un build de production avec npm run build.
-2.	Pour Netlify : Glissez-déposez simplement le dossier généré (dist ou build) directement sur l'interface web de Netlify.
-3.	Pour Vercel : Connectez votre dépôt GitHub à l'interface Vercel pour un déploiement automatique à chaque mise à jour de code.
+2.	Pour Vercel : Connectez votre dépôt GitHub à l'interface Vercel pour un déploiement automatique à chaque mise à jour de code.
 ________________________________________
 🛠️ Évolutions Futures (Back-End Firebase)
 •	Firestore Database : Déporter le tableau des questions et le contenu textuel des recommandations sur une base de données Cloud.
