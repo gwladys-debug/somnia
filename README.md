@@ -92,7 +92,8 @@ ________________________________________
 •	Firebase Auth : Permettre aux utilisateurs de se connecter pour enregistrer leurs résultats et suivre l'évolution de leurs scores de sommeil sur un tableau de bord (Dashboard historique).
 
 ________________________________________
- 	Arborescence 
+📦 	Arborescence
+
 fé-moun-dòmi/
 ├── .firebase/                      # Fichiers de cache générés automatiquement par Firebase
 ├── .vscode/                        # Configuration de l'éditeur VS Code
