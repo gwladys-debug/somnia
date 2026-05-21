@@ -63,7 +63,15 @@ npm run dev
 # 4. node.js avec (https://nodejs.org/en/download)
 
 # 3. React Native
-________________________________________
+
+# 4. Le paquet officiel : @genkit-ai/compat-oai
+npm install @genkit-ai/compat-oai
+
+Extrait de code
+# 5. Clé API OpenAI officielle
+OPENAI_API_KEY="sk-proj-..."
+
+___________________________________________________________________________
 📦 Guide de Déploiement
 L'application étant purement Front-End (statique), elle est optimisée pour être déployée gratuitement en quelques minutes.
 Option A : Déploiement sur Firebase Hosting (Recommandé mais non fonctionnel)
@@ -89,13 +97,14 @@ firebase deploy
 Option B : Déploiement Flash (Vercel ou Netlify)
 1.	Créez un build de production avec npm run build.
 2.	Pour Vercel : Connectez votre dépôt GitHub à l'interface Vercel pour un déploiement automatique à chaque mise à jour de code.
-________________________________________
+
+___________________________________________________________________________
 🛠️ Évolutions Futures (Back-End Firebase)
 •	Firestore Database : Déporter le tableau des questions et le contenu textuel des recommandations sur une base de données Cloud.
 •	Firebase Auth : Permettre aux utilisateurs de se connecter pour enregistrer leurs résultats et suivre l'évolution de leurs scores de sommeil sur un tableau de bord (Dashboard historique).
 • 
 
-________________________________________
+________________________________________________________________________________
 📦 	Arborescence
 
 fé-moun-dòmi/
