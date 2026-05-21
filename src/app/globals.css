@@ -11,6 +11,9 @@
     --card: 204 100% 94%; /* #E3F2FD */
     --card-foreground: 217 85% 34%; /* #0D47A1 */
     
+    --popover: 210 10% 20%;
+    --popover-foreground: 210 10% 98%;
+    
     --primary: 210 10% 88%; /* #E0E0E0 - Pearl Grey */
     --primary-foreground: 210 10% 15%; /* #212529 */
     
@@ -20,12 +23,30 @@
     --accent: 0 0% 74%; /* #BDBDBD - Medium Grey for hover */
     --accent-foreground: 210 10% 15%;
     
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 10% 98%;
+    
     --muted: 210 10% 25%;
     --muted-foreground: 210 10% 70%;
     
     --border: 210 10% 25%;
     --input: 210 10% 25%;
     --ring: 204 100% 94%;
+    
+    --chart-1: 210 100% 50%;
+    --chart-2: 204 100% 50%;
+    --chart-3: 0 100% 50%;
+    --chart-4: 120 100% 50%;
+    --chart-5: 40 100% 50%;
+    
+    --sidebar-background: 210 10% 20%;
+    --sidebar-foreground: 210 10% 98%;
+    --sidebar-primary: 210 10% 88%;
+    --sidebar-primary-foreground: 210 10% 15%;
+    --sidebar-accent: 0 0% 74%;
+    --sidebar-accent-foreground: 210 10% 15%;
+    --sidebar-border: 210 10% 25%;
+    --sidebar-ring: 204 100% 94%;
     
     --radius: 1rem; /* 16px */
   }
