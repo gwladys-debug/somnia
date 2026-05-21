@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Noctura Sleep Aid - Sommeil Serein',
+  title: 'Noctura Sleep Aid - Fè Moun Dòmi',
   description: 'Application d’aide à la gestion de l’insomnie basée sur 4 piliers.',
 };
 
