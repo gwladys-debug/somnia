@@ -1,5 +1,3 @@
-TEST
-
 # 💤 Fè Moun Dòmi — Application d'Aide à la Gestion de l'Insomnie
 
 ** Fè Moun Dòmi ** est une application web moderne (Single Page Application) développée en **React**, conçue pour aider les utilisateurs à analyser la qualité de leur sommeil et à lutter contre l'insomnie. À travers un questionnaire ciblé de 4 questions, l'application évalue les habitudes quotidiennes et génère instantanément des recommandations personnalisées basées sur 4 piliers fondamentaux de la santé.
