@@ -105,7 +105,7 @@ ___________________________________________________________________________
 • 
 
 ________________________________________________________________________________
-📦 	Arborescence
+🏗️ 	Arborescence
 
 fé-moun-dòmi/
 ├── .firebase/                      # Fichiers de cache générés automatiquement par Firebase
