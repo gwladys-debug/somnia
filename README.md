@@ -48,7 +48,7 @@ Affiche le bilan sous forme de grille adaptative contenant **4 cartes conseils d
 
 ## 🚀 Installation Locale (Développement)
 
-Pour installer et lancer ce projet sur votre machine locale, suivez ces étapes :
+Pour l'installation et le lancement ce projet sur nos machines en locale :
 
 ```bash
 # 1. Cloner le projet ou créer un dossier
@@ -59,10 +59,14 @@ npm install
 
 # 3. Lancer le serveur de développement local
 npm run dev
+
+# 4. node.js avec (https://nodejs.org/en/download)
+
+# 3. React Native
 ________________________________________
 📦 Guide de Déploiement
 L'application étant purement Front-End (statique), elle est optimisée pour être déployée gratuitement en quelques minutes.
-Option A : Déploiement sur Firebase Hosting (Recommandé)
+Option A : Déploiement sur Firebase Hosting (Recommandé mais non fonctionnel)
 Bash
 # 1. Compiler l'application pour la production
 npm run build
@@ -89,6 +93,7 @@ ________________________________________
 🛠️ Évolutions Futures (Back-End Firebase)
 •	Firestore Database : Déporter le tableau des questions et le contenu textuel des recommandations sur une base de données Cloud.
 •	Firebase Auth : Permettre aux utilisateurs de se connecter pour enregistrer leurs résultats et suivre l'évolution de leurs scores de sommeil sur un tableau de bord (Dashboard historique).
+• 
 
 ________________________________________
 📦 	Arborescence
