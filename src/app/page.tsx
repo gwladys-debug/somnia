@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { SleepQuiz } from '@/components/SleepQuiz';
 import { SleepResults } from '@/components/SleepResults';
 import { QuizResults } from '@/lib/sleep-constants';
-import { Moon, Stars, ArrowRight } from "lucide-react";
+import { Moon, ArrowRight } from "lucide-react";
 
 type AppState = 'home' | 'quiz' | 'results';
 
@@ -27,8 +27,8 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-6 bg-[#212529]">
-      {state === 'home' && (
+<main className="min-h-screen flex flex-col items-center justify-center p-6">
+        {state === 'home' && (
         <div className="w-full max-w-2xl text-center space-y-8 card-entrance">
           <div className="space-y-4">
             <h1 className="text-6xl font-bold text-white tracking-tight">

@@ -1,5 +1,7 @@
 import type {Metadata} from 'next';
+// @ts-expect-error Next.js handles global CSS imports at runtime.
 import './globals.css';
+import { NightSky } from '../components/NightSky';
 
 export const metadata: Metadata = {
   title: 'Noctura Sleep Aid - Fè Moun Dòmi',
@@ -19,7 +21,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased bg-background text-foreground min-h-screen flex flex-col">
-        {children}
+        <NightSky />
+        <div className="relative z-10 flex flex-1 flex-col">
+          {children}
+        </div>
       </body>
     </html>
   );
